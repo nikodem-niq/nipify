@@ -36,5 +36,31 @@ async function example() {
   }
 }
 
+/**
+ * Example of using nipify in a browser environment with a CORS proxy
+ * 
+ * This is required because GUS API doesn't support CORS, which browsers require
+ * for security reasons.
+ */
+async function browserExample() {
+  try {
+    // Using a CORS proxy for browser environments
+    const { company } = await getCompanyDetailsByNip('1234567890', {
+      apiKey: 'YOUR_API_KEY',
+      testMode: true,
+      corsProxy: 'https://cors-proxy.example.com/', // Replace with your CORS proxy URL
+    });
+
+    console.log('Company details (browser):');
+    console.log(JSON.stringify(company, null, 2));
+  } catch (error) {
+    console.error('Error fetching company details in browser:');
+    console.error(error.message);
+  }
+}
+
 // Run the example
 example(); 
+
+// In a browser environment, you would run the browserExample instead
+// browserExample(); 

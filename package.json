@@ -1,6 +1,6 @@
 {
   "name": "nipify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fetch Polish company details by NIP (VAT number) from official GUS registry",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

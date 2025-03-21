@@ -54,6 +54,7 @@ Fetches company details from the GUS registry using a NIP number.
   - `apiKey` (string, required): Your GUS API key
   - `apiUrl` (string, optional): Custom API URL if needed
   - `testMode` (boolean, optional): Set to `true` to use the test environment. Default: `false`
+  - `corsProxy` (string, optional): URL of a CORS proxy for browser environments (see Browser Usage section)
 
 #### Returns
 
@@ -75,6 +76,60 @@ The function will throw an error if:
 - API authentication fails
 - Company data cannot be retrieved
 - Any network or parsing errors occur
+
+## Browser Usage and CORS Issues
+
+The GUS API doesn't support Cross-Origin Resource Sharing (CORS), which means direct requests from browsers will fail with a CORS error like:
+
+```
+Access to fetch at 'https://wyszukiwarkaregon.stat.gov.pl/wsBIR/UslugaBIRzewnPubl.svc' 
+from origin 'http://localhost:3000' has been blocked by CORS policy
+```
+
+### Solutions:
+
+#### 1. Use a CORS Proxy
+
+You can use a CORS proxy to relay requests to the GUS API:
+
+```typescript
+const { company } = await getCompanyDetailsByNip('1234567890', {
+  apiKey: 'YOUR_API_KEY',
+  corsProxy: 'https://your-cors-proxy.com/',
+});
+```
+
+Popular CORS proxy options:
+- Set up your own proxy server
+- Use a service like [CORS Anywhere](https://github.com/Rob--W/cors-anywhere)
+- Create a serverless function (e.g., using AWS Lambda, Vercel, or Netlify functions)
+
+#### 2. Create a Backend Service
+
+For production applications, the recommended approach is to create a backend service that makes requests to the GUS API and then serves the data to your frontend:
+
+```typescript
+// Your backend service
+app.get('/api/company/:nip', async (req, res) => {
+  try {
+    const { company } = await getCompanyDetailsByNip(req.params.nip, {
+      apiKey: process.env.GUS_API_KEY,
+    });
+    res.json({ company });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Your frontend
+fetch(`/api/company/1234567890`)
+  .then(response => response.json())
+  .then(data => console.log(data.company));
+```
+
+#### 3. Use in Node.js Environments Only
+
+If you're only using this package in Node.js (not in browsers), you don't need to worry about CORS issues.
 
 ## How to Get an API Key
 

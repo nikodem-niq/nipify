@@ -26,6 +26,8 @@ export interface GetCompanyOptions {
   apiUrl?: string;
   /** Whether to use test environment instead of production */
   testMode?: boolean;
+  /** CORS proxy URL to use when running in browser environments (e.g., 'https://your-cors-proxy.com/') */
+  corsProxy?: string;
 }
 
 const DEFAULT_API_URL = 'https://wyszukiwarkaregon.stat.gov.pl/wsBIR/UslugaBIRzewnPubl.svc';
@@ -52,15 +54,20 @@ export async function getCompanyDetailsByNip(
     throw new Error('API key is required');
   }
 
-  const apiUrl = options.testMode 
+  const baseApiUrl = options.testMode 
     ? (options.apiUrl || DEFAULT_TEST_API_URL)
     : (options.apiUrl || DEFAULT_API_URL);
+    
+  // Use CORS proxy if provided
+  const apiUrl = options.corsProxy 
+    ? `${options.corsProxy}${baseApiUrl}` 
+    : baseApiUrl;
 
   try {
     const rawLoginXml = `<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
 xmlns:ns="http://CIS/BIR/PUBL/2014/07">
 <soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
-<wsa:To>${apiUrl}</wsa:To>
+<wsa:To>${baseApiUrl}</wsa:To>
 <wsa:Action>http://CIS/BIR/PUBL/2014/07/IUslugaBIRzewnPubl/Zaloguj</wsa:Action>
 </soap:Header>
 <soap:Body>
@@ -92,7 +99,7 @@ xmlns:ns="http://CIS/BIR/PUBL/2014/07">
     const rawFindXml = `<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
 xmlns:ns="http://CIS/BIR/PUBL/2014/07" xmlns:dat="http://CIS/BIR/PUBL/2014/07/DataContract">
 <soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
-<wsa:To>${apiUrl}</wsa:To>
+<wsa:To>${baseApiUrl}</wsa:To>
 <wsa:Action>http://CIS/BIR/PUBL/2014/07/IUslugaBIRzewnPubl/DaneSzukajPodmioty</wsa:Action>
 </soap:Header>
 <soap:Body>
