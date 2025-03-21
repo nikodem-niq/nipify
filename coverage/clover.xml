@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1742597630241" clover="3.2.0">
+  <project timestamp="1742597630241" name="All files">
+    <metrics statements="59" coveredstatements="57" conditionals="27" coveredconditionals="26" methods="3" coveredmethods="3" elements="89" coveredelements="86" complexity="0" loc="59" ncloc="59" packages="2" files="2" classes="2"/>
+    <package name="src">
+      <metrics statements="54" coveredstatements="52" conditionals="27" coveredconditionals="26" methods="3" coveredmethods="3"/>
+      <file name="index.ts" path="/Users/nikodemzychma/Documents/projects/company-details-by-nip/src/index.ts">
+        <metrics statements="54" coveredstatements="52" conditionals="27" coveredconditionals="26" methods="3" coveredmethods="3"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="29" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="33" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="37" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="41" count="5" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
+        <line num="56" count="5" type="stmt"/>
+        <line num="64" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="68" count="4" type="stmt"/>
+        <line num="69" count="4" type="stmt"/>
+        <line num="71" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="76" count="4" type="stmt"/>
+        <line num="91" count="4" type="stmt"/>
+        <line num="100" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="104" count="3" type="stmt"/>
+        <line num="105" count="3" type="stmt"/>
+        <line num="107" count="3" type="stmt"/>
+        <line num="109" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="110" count="2" type="stmt"/>
+        <line num="112" count="0" type="stmt"/>
+        <line num="119" count="2" type="stmt"/>
+        <line num="120" count="7" type="stmt"/>
+        <line num="121" count="7" type="stmt"/>
+        <line num="123" count="7" type="cond" truecount="3" falsecount="0"/>
+        <line num="124" count="5" type="stmt"/>
+        <line num="125" count="5" type="stmt"/>
+        <line num="127" count="2" type="stmt"/>
+        <line num="133" count="2" type="stmt"/>
+        <line num="134" count="6" type="stmt"/>
+        <line num="135" count="6" type="stmt"/>
+        <line num="136" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="138" count="6" type="stmt"/>
+        <line num="139" count="6" type="stmt"/>
+        <line num="140" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="142" count="6" type="stmt"/>
+        <line num="143" count="6" type="stmt"/>
+        <line num="144" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="146" count="6" type="stmt"/>
+        <line num="147" count="6" type="stmt"/>
+        <line num="148" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="150" count="6" type="stmt"/>
+        <line num="151" count="6" type="stmt"/>
+        <line num="152" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="154" count="6" type="stmt"/>
+        <line num="155" count="6" type="stmt"/>
+        <line num="156" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="158" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="tests">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="mocks.ts" path="/Users/nikodemzychma/Documents/projects/company-details-by-nip/tests/mocks.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="64" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

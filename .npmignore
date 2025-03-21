@@ -1,0 +1,29 @@
+# Source files
+src/
+tests/
+examples/
+
+# Configuration files
+tsconfig.json
+jest.config.js
+.github/
+.vscode/
+.idea/
+
+# Git
+.git/
+.gitignore
+
+# CI
+.travis.yml
+.gitlab-ci.yml
+.circleci/
+
+# Coverage reports
+coverage/
+
+# Development and debug files
+*.log
+*.tsbuildinfo
+.DS_Store
+Thumbs.db 

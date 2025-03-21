@@ -1,0 +1,49 @@
+{
+  "name": "nipify",
+  "version": "1.0.0",
+  "description": "Fetch Polish company details by NIP (VAT number) from official GUS registry",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "nip",
+    "poland",
+    "vat",
+    "company",
+    "business",
+    "regon",
+    "gus",
+    "stat",
+    "registry",
+    "polish"
+  ],
+  "author": "nikodem-niq",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.11.19",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.6",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikodem-niq/nipify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nikodem-niq/nipify/issues"
+  },
+  "homepage": "https://github.com/nikodem-niq/nipify#readme"
+}
