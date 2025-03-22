@@ -141,8 +141,9 @@ xmlns:ns="http://CIS/BIR/PUBL/2014/07" xmlns:dat="http://CIS/BIR/PUBL/2014/07/Da
  * 
  * @param sidResponse - SOAP response text containing the session ID
  * @returns Session ID string or -1 if not found
+ * @internal
  */
-export function parseSidString(sidResponse: string): number | string {
+function parseSidString(sidResponse: string): number | string {
   const startIndex = sidResponse.indexOf("<ZalogujResult>") + "<ZalogujResult>".length;
   const endIndex = sidResponse.indexOf("</ZalogujResult>");
 
@@ -158,8 +159,9 @@ export function parseSidString(sidResponse: string): number | string {
  * 
  * @param soapCompanyData - SOAP response text containing company data
  * @returns Parsed company details object
+ * @internal
  */
-export function parseCompanySoapDataToJson(soapCompanyData: string): CompanyDetails {
+function parseCompanySoapDataToJson(soapCompanyData: string): CompanyDetails {
   const companyNameRegex = /Nazwa&gt;([^<&]+)&lt;/;
   const companyNameMatch = companyNameRegex.exec(soapCompanyData);
   const companyName = companyNameMatch ? companyNameMatch[1] : undefined;
